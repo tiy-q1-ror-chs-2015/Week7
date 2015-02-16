@@ -1,0 +1,17 @@
+%h1
+  This is some awesome address text.
+
+%h3 List of Addresses
+= link_to "New Address", new_address_path, remote: true
+%ul
+  - @addresses.each do |address|
+    %li{class: "address-#{address.id}"}
+      = address.name
+      |
+      = address.address
+      ,
+      = address.city
+      = address.state
+      = address.zip
+      |
+      = link_to "Delete", 'javascript:void(0);', class: "delete-address", address_id: address.id
