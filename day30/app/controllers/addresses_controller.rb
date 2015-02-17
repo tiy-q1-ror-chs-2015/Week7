@@ -1,8 +1,8 @@
 class AddressesController < ApplicationController
   def index
     @addresses = Address.all
-    p "butts"
-    p "lots of butts"
+    p "KC"
+    p "is_like"
     respond_to do |format|
       format.js
       format.html
