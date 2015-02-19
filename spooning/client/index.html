@@ -1,19 +1,49 @@
 <html>
 <head>
   <title>Spooning App</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <script type="text/x-template" id="studentTmpl">
     
       <img src="<%= photo %>">
       <h2><%= name %></h2>
       <p><%= bio %></p>
-      <button>Delete</button>
+      <button class="deleteStudent">Delete</button> | <button class="showEdit">Edit</button>
+      <form class='editForm'>
+        <h2><input type="text" name='editName' value='<%= name %>'></h2>
+        <p><textarea type="text" name='editBio'>
+          <%= bio %>
+        </textarea></p>
+        <p><input type="text" name='editWingspan' value='<%= wingspan %>'></p>
+        <button type="submit">Submit Edit</button>
+      </form>
       <hr>
     
   </script>
+  <script type="text/x-template" id="addStudentTmpl">
+    <form id="createStudent" action="">
+      <label for="name">Name</label>
+      <input type="text" name="name" placeholder="Name">
+      <label for="wingspan">wingspan</label>
+      <input type="text" name="wingspan" placeholder="Wingspan">
+      <label for="bio">bio</label>
+      <textarea type="text" name="bio" placeholder="bio">
+      </textarea>
+      <label for="photo">photo</label>
+      <input type="text" name="photo" placeholder="Photo URL">
+      <button type="submit">Create Student</button>
+    </form>
+  </script>
 </head>
 <body>
+  <ul>
+    <li><a href="#spoon">Spoon!</a></li>
+  </ul>
 <h1>Spooning in progress....</h1>
+
 <div class="container">
+  
+
+
 
 </div>
 

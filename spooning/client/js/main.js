@@ -1,10 +1,5 @@
-var appView;
+var App = {};
 $(function() {
-  var people = new StudentCollection();
-
-  people.fetch({data: $.param({limit: 2})}).then(function() {
-    appView = new StudentsView({collection: people});
-
-
-  });
+  App.router = new AppRouter();
+  Backbone.history.start();
 });

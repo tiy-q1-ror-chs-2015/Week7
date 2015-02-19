@@ -17,4 +17,44 @@ class StudentsController < ApplicationController
       format.json { render nothing: true }
     end
   end
+
+  def create
+    @student = BackendStudent.new student_params
+    if @student.save
+      respond_to do |format|
+        format.json { render json: @student.to_json }
+      end 
+    else
+      respond_to do |format|
+        format.json { render json: @student.errors.full_messages, status: 422 }
+      end
+    end
+  end
+
+  def update
+    @student = BackendStudent.find params[:id]
+    # params[:name]
+    # params[:bio]
+    # params[:wingspan]
+    if @student.update_attributes student_params
+      respond_to do |format|
+        format.json { render json: @student.to_json }
+      end 
+    else
+      respond_to do |format|
+        format.json { render json: @student.errors.full_messages, status: 422 }
+      end
+    end
+  end
+
+private
+  def student_params
+    params.require(:student).permit(
+      :name,
+      :bio,
+      :wingspan,
+      :photo
+
+    )
+  end
 end

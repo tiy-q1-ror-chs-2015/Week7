@@ -10,5 +10,8 @@ var Student = Backbone.Model.extend({
   }, 
   initialize: function() {
     console.log("student has been initialized!");
+  },
+  toJSON: function() {
+    return {student: this.attributes};
   }
 });
